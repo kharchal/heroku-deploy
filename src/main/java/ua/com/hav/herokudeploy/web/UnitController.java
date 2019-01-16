@@ -10,6 +10,7 @@ import ua.com.hav.herokudeploy.repo.UnitRepo;
 import ua.com.hav.herokudeploy.service.UnitService;
 
 import javax.servlet.http.HttpSession;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -25,7 +26,7 @@ public class UnitController {
         List<Unit> units = new ArrayList<>();
         for (int i = 0; i < 5; i++) {
             Unit unit = new Unit();
-            unit.setName("name=" + i);
+            unit.setName("name-" + i);
             unit.setQty(i * 100);
             units.add(unit);
         }
@@ -42,5 +43,18 @@ public class UnitController {
         session.setAttribute("date" , new Date());
         model.addAttribute("units", unitService.list());
         return "units";
+    }
+
+    @RequestMapping("/units/clear")
+    public String clear() {
+        unitService.clearAll();
+        return "redirect:/units";
+    }
+
+    @RequestMapping("/units/update/{id}")
+    public String update(@PathVariable Long id) {
+        unitService.update(id, LocalDateTime.now().getNano());
+//        unitService.s
+        return "redirect:/units";
     }
 }
