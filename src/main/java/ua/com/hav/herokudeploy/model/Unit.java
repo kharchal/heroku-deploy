@@ -43,6 +43,10 @@ public class Unit {
     private SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy");
 
     public String getXdate() {
+        if (date == null) {
+            date = new Date();
+            date.setTime(0L);
+        }
         return format.format(date);
     }
 
