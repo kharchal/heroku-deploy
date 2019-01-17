@@ -13,6 +13,7 @@
             <th>ID</th>
             <th>NAME</th>
             <th>QTY</th>
+            <th>DATE</th>
             <th>CREATED</th>
             <th>UPDATED</th>
             <th></th>
@@ -23,13 +24,18 @@
             <td>${u.name}</td>
             <td>${u.qty}</td>
             <td>
+                <fmt:formatDate value="${u.date}" pattern="yyyy.MM.dd"/>
+            </td>
+            <td>
                 <fmt:formatDate value="${u.created}" pattern="yyyy.MM.dd HH:mm:ss.SSS"/>
             </td>
             <td>
                 <fmt:formatDate value="${u.updated}" pattern="yyyy.MM.dd HH:mm:ss.SSS"/>
             </td>
             <td>
-                <a href="<c:url value="/units/update/${u.id}"/>">update</a>
+                <a href="<c:url value="/units/edit/${u.id}"/>">edit</a> |
+                <a href="<c:url value="/units/update/${u.id}"/>">update</a> |
+                <a href="<c:url value="/units/delete/${u.id}"/>">delete</a>
             </td>
         </tr>
     </c:forEach>
