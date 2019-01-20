@@ -7,12 +7,6 @@
 </head>
 <body>
     index page<hr>
-    ${msg}<br>
-    <a href="<c:url value="/units/populate/0"/>">populate units</a> |
-    <a href="<c:url value="/units/populate/3"/>">populate units exceptional</a> |
-    <a href="<c:url value="/units"/>">show units</a>
-    <hr>
-    ${sessionScope.attributes}
-
+    <c:import url="util/footer.jsp"/>
 </body>
 </html>

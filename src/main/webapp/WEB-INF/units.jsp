@@ -40,8 +40,6 @@
         </tr>
     </c:forEach>
     </table>
-    <hr>
-    <a href="<c:url value="/"/>">home</a> |
-    <a href="<c:url value="/units/clear"/>">clear all</a>
+    <c:import url="util/footer.jsp"/>
 </body>
 </html>

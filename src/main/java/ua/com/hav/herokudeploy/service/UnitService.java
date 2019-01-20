@@ -9,7 +9,6 @@ import ua.com.hav.herokudeploy.repo.UnitRepo;
 
 import javax.persistence.EntityNotFoundException;
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class UnitService {
@@ -55,7 +54,7 @@ public class UnitService {
     }
 
     public Unit findOne(Long id) {
-        return unitRepo.findById(id).orElseThrow(() -> new EntityNotFoundException("unit id = " + id));
+        return unitRepo.findById(id).orElseThrow(() -> new EntityNotFoundException("Unit id = " + id));
     }
 
     @Transactional
