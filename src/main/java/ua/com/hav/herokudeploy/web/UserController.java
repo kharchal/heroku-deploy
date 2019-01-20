@@ -63,7 +63,7 @@ public class UserController {
 
     @ModelAttribute("roles")
     public Map<Long, UserRole> roles() {
-        if (userRoles == null) {
+        if (userRoles == null || userRoles.size() == 0) {
             userRoles = userRoleService.roleMap();
         }
         return userRoles;
