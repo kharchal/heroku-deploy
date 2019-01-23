@@ -7,30 +7,24 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script>
         var x = true;
         $(document).ready(function () {
-            $("[id|=tbl]").hide();
-            $("#trigger").text("expand");
             x = false;
             $("#trigger").click(function () {
-                if (x) {
-                    $("[id|=tbl]").hide();
-                    $("#trigger").text("expand");
-                } else {
-                    $("[id|=tbl]").show();
-                    $("#trigger").text("hide");
-                }
+                $("#trigger").text(x ? "expand" : "hide");
+                $("[id|=tbl]").toggleClass("hide");
                 x = !x;
-                // alert("123");
-                // $("#tblh1").hide();
-                // $("#tblh2").hide();
-                // $("#tblctx-2").hide();
-                // $("#tblctx").hide();
-            })
+            });
         });
     </script>
+    <style>
+        .hide {
+            display: none;
+        }
+    </style>
 </head>
 <body>
     users page<hr>
@@ -45,9 +39,9 @@
             <th>LEVEL</th>
             <th>STATE</th>
             <th>BALANCE</th>
-            <th id="tbl-1">CREATED</th>
-            <th id="tbl-2">UPDATED</th>
-            <th><button id="trigger">hide</button></th>
+            <th id="tbl-1" class="hide">CREATED</th>
+            <th id="tbl-2" class="hide">UPDATED</th>
+            <th><button id="trigger">expand</button></th>
         </tr>
     <c:forEach var="c" items="${clients}">
         <tr>
@@ -59,10 +53,10 @@
             <td>${c.level.value}</td>
             <td>${c.state.value}</td>
             <td>${c.balance}</td>
-            <td id="tbl-3">
+            <td id="tbl-3" class="hide">
                 <fmt:formatDate value="${c.created}" pattern="yyyy.MM.dd HH:mm:ss.SSS"/>
             </td>
-            <td id="tbl-4">
+            <td id="tbl-4" class="hide">
                 <fmt:formatDate value="${c.updated}" pattern="yyyy.MM.dd HH:mm:ss.SSS"/>
             </td>
             <td>
