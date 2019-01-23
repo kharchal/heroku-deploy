@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import ua.com.hav.herokudeploy.model.UserRole;
+import ua.com.hav.herokudeploy.service.EntityUpdateController;
 import ua.com.hav.herokudeploy.service.UserRoleService;
 
 import javax.validation.Valid;
@@ -34,6 +35,7 @@ public class UserRoleController {
             return ROLE_FORM;
         }
         userRoleService.save(userRole);
+        EntityUpdateController.userRoleReload = true;
         return REDIRECT_ROLES;
     }
 

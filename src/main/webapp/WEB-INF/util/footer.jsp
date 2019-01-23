@@ -8,6 +8,9 @@
     <a href="<c:url value="/units"/>">units</a> |
     <a href="<c:url value="/users"/>">users</a> |
     <a href="<c:url value="/roles"/>">roles</a> |
+    <a href="<c:url value="/clients"/>">clients</a> |
+    <a href="<c:url value="/levels"/>">levels</a> |
+    <a href="<c:url value="/states"/>">states</a> |
     <hr>
     <center>(c) HAV, 2019</center>
 </span>

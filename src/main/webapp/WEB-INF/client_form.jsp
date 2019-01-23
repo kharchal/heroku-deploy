@@ -12,8 +12,8 @@
 <body>
     user edit page<hr>
     <table cellpadding="4">
-        <c:set var="action"><c:url value="/users/save"/></c:set>
-        <f:form action="${action}" modelAttribute="user">
+        <c:set var="action"><c:url value="/clients/save"/></c:set>
+        <f:form action="${action}" modelAttribute="client">
             <tr>
                 <td>
                     <label for="id">ID</label>
@@ -36,44 +36,66 @@
             </tr>
             <tr>
                 <td>
-                    <f:label path="login">LOGIN</f:label>
+                    <f:label path="surname">SURNAME</f:label>
                 </td>
                 <td>
-                    <f:input path="login"/>
+                    <f:input path="surname"/>
                 </td>
                 <td>
-                    <f:errors path="login"/>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <f:label path="password">PASSWORD</f:label>
-                </td>
-                <td>
-                    <f:input path="password"/>
-                </td>
-                <td>
-                    <f:errors path="password"/>
-                </td>
-            </tr>
-            <tr>
-                <td><f:label path="active">ACTIVE</f:label></td>
-                <td>
-                    <f:checkbox path="active" />
+                    <f:errors path="surname"/>
                 </td>
             </tr>
             <tr>
                 <td>
-                    <f:label path="userRoles">ROLES</f:label>
+                    <f:label path="phone">PHONE</f:label>
                 </td>
                 <td>
-                    <select multiple size="${roles.size()}" name="userRoles">
-                        <c:forEach items="${roles.values()}" var="r">
-                            <option value="${r.id}" ${user.userRoles.contains(r) ? "selected" : ""}>
-                                ${r.value}
-                            </option>
-                        </c:forEach>
-                    </select>
+                    <f:input path="phone"/>
+                </td>
+                <td>
+                    <f:errors path="phone"/>
+                </td>
+            </tr>
+            <tr>
+                <td><f:label path="email">EMAIL</f:label></td>
+                <td>
+                    <f:input path="email" />
+                </td>
+                <td>
+                    <f:errors path="email"/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <f:label path="level">LEVEL</f:label>
+                </td>
+                <td>
+                    <f:select path="level.id" items="${levels}"/>
+                        <%--<c:forEach items="${roles.values()}" var="r">--%>
+                            <%--<option value="${r.id}" ${user.userRoles.contains(r) ? "selected" : ""}>--%>
+                                <%--${r.value}--%>
+                            <%--</option>--%>
+                        <%--</c:forEach>--%>
+                    <%--</f:select>--%>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <f:label path="state">STATE</f:label>
+                </td>
+                <td>
+                    <f:select path="state.id" items="${states}"/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <f:label path="balance">BALANCE</f:label>
+                </td>
+                <td>
+                    <f:input path="balance"/>
+                </td>
+                <td>
+                    <f:errors path="balance"/>
                 </td>
             </tr>
             <tr>
@@ -81,7 +103,7 @@
                     <f:label path="created">CREATED</f:label>
                 </td>
                 <td>
-                    <input value="${user.created}"/>
+                    <input value="${client.created}"/>
                 </td>
                 <td></td>
             </tr>
@@ -90,7 +112,7 @@
                     <f:label path="updated">UPDATED</f:label>
                 </td>
                 <td>
-                    <input value="${user.updated}"/>
+                    <input value="${client.updated}"/>
                 </td>
             </tr>
             <tr>

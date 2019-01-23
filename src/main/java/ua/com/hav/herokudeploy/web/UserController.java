@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import ua.com.hav.herokudeploy.model.User;
 import ua.com.hav.herokudeploy.model.UserRole;
 import ua.com.hav.herokudeploy.repo.UserRepo;
+import ua.com.hav.herokudeploy.service.EntityUpdateController;
 import ua.com.hav.herokudeploy.service.UserRoleService;
 import ua.com.hav.herokudeploy.service.UserService;
 
@@ -24,6 +25,7 @@ public class UserController {
     public static final String USER_FORM = "user_form";
 
     public static Map<Long, UserRole> userRoles;
+//    public static boolean userRolesInit = false;
 
     @Autowired
     private UserService userService;
@@ -63,8 +65,9 @@ public class UserController {
 
     @ModelAttribute("roles")
     public Map<Long, UserRole> roles() {
-        if (userRoles == null || userRoles.size() == 0) {
+        if (EntityUpdateController.userRoleReload) {
             userRoles = userRoleService.roleMap();
+            EntityUpdateController.userRoleReload = false;
         }
         return userRoles;
     }
