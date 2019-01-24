@@ -10,10 +10,10 @@
     <title>Title</title>
 </head>
 <body>
-    unit edit page<hr>
+    payment edit page<hr>
     <table cellpadding="4">
-        <c:set var="action"><c:url value="/units/save"/></c:set>
-        <f:form action="${action}" modelAttribute="unit">
+        <c:set var="action"><c:url value="/payments/save"/></c:set>
+        <f:form action="${action}" modelAttribute="payment">
             <tr>
                 <td>
                     <label for="id">ID</label>
@@ -25,24 +25,35 @@
             </tr>
             <tr>
                 <td>
-                    <f:label path="name">NAME</f:label>
+                    <f:label path="client">CLIENT</f:label>
                 </td>
                 <td>
-                    <f:input path="name"/>
+                    <f:select path="client.id" items="${clients}"/>
                 </td>
                 <td>
-                    <f:errors path="name"/>
+                    <f:errors path="client"/>
                 </td>
             </tr>
             <tr>
                 <td>
-                    <f:label path="qty">QTY</f:label>
+                    <f:label path="channel">CHANNELS</f:label>
                 </td>
                 <td>
-                    <f:input path="qty"/>
+                    <f:select path="channel.id" items="${channels}"/>
                 </td>
                 <td>
-                    <f:errors path="qty"/>
+                    <f:errors path="channel"/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <f:label path="amount">AMOUNT</f:label>
+                </td>
+                <td>
+                    <f:input path="amount"/>
+                </td>
+                <td>
+                    <f:errors path="amount"/>
                 </td>
             </tr>
             <tr>
@@ -50,7 +61,6 @@
                     <f:label path="date">DATE</f:label>
                 </td>
                 <td>
-                    <%--<input name="xdate" value="${unit.xdate}"/>--%>
                     <f:input path="xdate"/>
                 </td>
                 <td>
@@ -62,7 +72,7 @@
                     <f:label path="created">CREATED</f:label>
                 </td>
                 <td>
-                    <input value="${unit.created}"/>
+                    <input value="${payment.created}"/>
                 </td>
                 <td></td>
             </tr>
@@ -71,7 +81,7 @@
                     <f:label path="updated">UPDATED</f:label>
                 </td>
                 <td>
-                    <input value="${unit.updated}"/>
+                    <input value="${payment.updated}"/>
                 </td>
             </tr>
             <tr>

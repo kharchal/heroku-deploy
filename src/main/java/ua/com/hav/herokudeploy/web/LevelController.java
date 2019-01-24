@@ -6,6 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import ua.com.hav.herokudeploy.model.Level;
 import ua.com.hav.herokudeploy.service.LevelService;
 
@@ -39,7 +40,7 @@ public class LevelController {
         return LEVEL_FORM;
     }
 
-    @RequestMapping("/levels/save")
+    @RequestMapping(value = "/levels/save", method = RequestMethod.POST)
     public String save(@Valid Level level, BindingResult result) {
         if (result.hasErrors()) {
             return LEVEL_FORM;

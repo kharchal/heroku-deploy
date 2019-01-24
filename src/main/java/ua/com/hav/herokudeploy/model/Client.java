@@ -35,4 +35,8 @@ public class Client {
 
     @UpdateTimestamp
     private Date updated;
+
+    public String getMnemo() {
+        return name + " " + surname;
+    }
 }

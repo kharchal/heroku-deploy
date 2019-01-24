@@ -11,6 +11,8 @@
     <a href="<c:url value="/clients"/>">clients</a> |
     <a href="<c:url value="/levels"/>">levels</a> |
     <a href="<c:url value="/states"/>">states</a> |
+    <a href="<c:url value="/channels"/>">channels</a> |
+    <a href="<c:url value="/payments"/>">payments</a> |
     <hr>
     <center>(c) HAV, 2019</center>
 </span>

@@ -8,20 +8,24 @@ import org.springframework.format.annotation.DateTimeFormat;
 import javax.persistence.*;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.Date;
 
 @Data
 @Entity
-@Table(name = "units")
-public class Unit {
+@Table(name = "payments")
+public class Payment {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String name;
-    private int qty;
+
+    @ManyToOne
+    private Client client;
+
+    @ManyToOne
+    private Channel channel;
+
+    private Integer amount;
 
     @CreationTimestamp
     @Column(updatable = false)

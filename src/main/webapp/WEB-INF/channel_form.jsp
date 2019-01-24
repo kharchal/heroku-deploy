@@ -10,10 +10,10 @@
     <title>Title</title>
 </head>
 <body>
-    state edit page<hr>
+    channel edit page<hr>
     <table cellpadding="4">
-        <c:set var="action"><c:url value="/states/save"/></c:set>
-        <f:form action="${action}" modelAttribute="state">
+        <c:set var="action"><c:url value="/channels/save"/></c:set>
+        <f:form action="${action}" modelAttribute="channel">
             <tr>
                 <td>
                     <label for="id">ID</label>

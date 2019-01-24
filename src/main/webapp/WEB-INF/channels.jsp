@@ -9,20 +9,20 @@
     <title>Title</title>
 </head>
 <body>
-    states page<hr>
-    <a href="<c:url value="/states/new"/>">new state</a> <hr>
+    channels page<hr>
+    <a href="<c:url value="/channels/new"/>">new state</a> <hr>
     <table cellpadding="4">
         <tr>
             <th>ID</th>
             <th>VALUE</th>
             <th></th>
         </tr>
-    <c:forEach var="s" items="${states}">
+    <c:forEach var="c" items="${channels}">
         <tr>
-            <td>${s.id}</td>
-            <td>${s.value}</td>
+            <td>${c.id}</td>
+            <td>${c.value}</td>
             <td>
-                <a href="<c:url value="/states/edit/${s.id}"/>">edit</a> |
+                <a href="<c:url value="/channels/edit/${c.id}"/>">edit</a> |
             </td>
         </tr>
     </c:forEach>
