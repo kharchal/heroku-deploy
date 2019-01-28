@@ -24,7 +24,7 @@ public class Client {
     private int balance;
 
     @Column(nullable = true)
-    private int initialBalance;
+    private Integer initialBalance;
 
     @ManyToOne
     private Level level;
