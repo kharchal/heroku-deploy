@@ -29,10 +29,15 @@ public class ClientService {
     @Transactional
     public void save(Client client) {
         clientRepo.save(client);
+
     }
 
     public Map<Long, String> map() {
         return clientRepo.findAll().stream().collect(Collectors.toMap(Client::getId, Client::getMnemo));
 //        return clientRepo.findAll().stream().collect(Collectors.toMap(Client::getId, Client::getSurname));
+    }
+
+    public List<Client> findByLevelId(Long id) {
+        return clientRepo.findByLevelId(id);
     }
 }

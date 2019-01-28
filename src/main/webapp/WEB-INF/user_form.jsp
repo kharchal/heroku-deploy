@@ -10,6 +10,7 @@
     <title>Title</title>
 </head>
 <body>
+    <c:import url="util/header.jsp"/>
     user edit page<hr>
     <table cellpadding="4">
         <c:set var="action"><c:url value="/users/save"/></c:set>

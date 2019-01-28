@@ -30,6 +30,7 @@
     </script>
 </head>
 <body>
+    <c:import url="util/header.jsp"/>
     users page<hr>
     <a href="<c:url value="/users/new"/>">new user</a> <hr>
     <table cellpadding="4">

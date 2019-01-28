@@ -11,11 +11,11 @@
 </head>
 <body>
     <c:import url="util/header.jsp"/>
-    payment edit page<hr>
+    expense edit page<hr>
     <table cellpadding="4">
-        <c:set var="action"><c:url value="/payments/save"/></c:set>
-        <f:form action="${action}" modelAttribute="payment">
-            <input name="mapping" type="hidden" value="${mapping}"/>
+        <c:set var="action"><c:url value="/expenses/save"/></c:set>
+        <f:form action="${action}" modelAttribute="expense">
+            <input type="hidden" name="mapping" value="${mapping}"/>
             <tr>
                 <td>
                     <label for="id">ID</label>
@@ -38,13 +38,13 @@
             </tr>
             <tr>
                 <td>
-                    <f:label path="channel">CHANNELS</f:label>
+                    <f:label path="comment">COMMENT</f:label>
                 </td>
                 <td>
-                    <f:select path="channel.id" items="${channels}"/>
+                    <f:input path="comment"/>
                 </td>
                 <td>
-                    <f:errors path="channel"/>
+                    <f:errors path="comment"/>
                 </td>
             </tr>
             <tr>

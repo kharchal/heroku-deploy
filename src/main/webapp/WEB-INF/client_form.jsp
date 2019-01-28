@@ -10,7 +10,9 @@
     <title>Title</title>
 </head>
 <body>
+    <c:import url="util/header.jsp"/>
     user edit page<hr>
+
     <table cellpadding="4">
         <c:set var="action"><c:url value="/clients/save"/></c:set>
         <f:form action="${action}" modelAttribute="client">
@@ -89,10 +91,21 @@
             </tr>
             <tr>
                 <td>
+                    <f:label path="initialBalance">INITIAL BALANCE</f:label>
+                </td>
+                <td>
+                    <f:input path="initialBalance"/>
+                </td>
+                <td>
+                    <f:errors path="initialBalance"/>
+                </td>
+            </tr>
+            <tr>
+                <td>
                     <f:label path="balance">BALANCE</f:label>
                 </td>
                 <td>
-                    <f:input path="balance"/>
+                    <f:input path="balance" readonly="true"/>
                 </td>
                 <td>
                     <f:errors path="balance"/>
@@ -122,7 +135,7 @@
             </tr>
         </f:form>
     </table>
-    <hr>
+
     <c:import url="util/footer.jsp"/>
 </body>
 </html>

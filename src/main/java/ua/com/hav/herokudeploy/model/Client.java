@@ -23,6 +23,9 @@ public class Client {
 
     private int balance;
 
+    @Column(nullable = true)
+    private int initialBalance;
+
     @ManyToOne
     private Level level;
 

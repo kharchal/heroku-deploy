@@ -8,7 +8,17 @@
     <title>Title</title>
 </head>
 <body>
-    index page<hr>
+    <c:import url="util/header.jsp"/>
+    login page<hr>
+    <div style="color: red">${msg}</div>
+    <c:set var="action"><c:url value="/login"/></c:set>
+    <form action="${action}" method="post">
+        <label for="login">LOGIN</label>
+        <input name="login" id="login"/>
+        <label for="password">LOGIN</label>
+        <input name="password" id="password" type="password"/>
+        <input type="submit" value="Login"/>
+    </form>
     <c:import url="util/footer.jsp"/>
 </body>
 </html>

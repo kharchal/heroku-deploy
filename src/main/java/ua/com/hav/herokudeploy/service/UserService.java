@@ -28,4 +28,8 @@ public class UserService {
     public void save(User user) {
         userRepo.save(user);
     }
+
+    public User login(String login, String password) {
+        return userRepo.findByLoginAndPassword(login, password);
+    }
 }

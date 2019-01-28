@@ -9,6 +9,7 @@
     <title>Title</title>
 </head>
 <body>
+    <c:import url="util/header.jsp"/>
     roles page<hr>
     <a href="<c:url value="/roles/new"/>">new role</a> <hr>
     <table cellpadding="4">

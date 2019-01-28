@@ -9,8 +9,9 @@
     <title>Title</title>
 </head>
 <body>
+    <c:import url="util/header.jsp"/>
     channels page<hr>
-    <a href="<c:url value="/channels/new"/>">new state</a> <hr>
+    <a href="<c:url value="/channels/new"/>">new channel</a> <hr>
     <table cellpadding="4">
         <tr>
             <th>ID</th>

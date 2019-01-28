@@ -9,6 +9,8 @@
     <title>Title</title>
 </head>
 <body>
+    <c:import url="util/header.jsp"/>
+
     units page<hr>
     <table cellpadding="4">
         <tr>

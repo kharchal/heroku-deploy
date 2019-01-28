@@ -4,10 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
+import ua.com.hav.herokudeploy.model.Client;
 import ua.com.hav.herokudeploy.model.Payment;
 import ua.com.hav.herokudeploy.service.ChannelService;
 import ua.com.hav.herokudeploy.service.ClientService;
@@ -44,6 +42,16 @@ public class PaymentController {
         return PAYMENT_FORM;
     }
 
+    @RequestMapping("/payments/new/{id}")
+    public String newPayment(@PathVariable Long id, Model model) {
+        Payment payment = new Payment();
+        Client client = clientService.findById(id);
+        payment.setClient(client);
+        model.addAttribute("payment", payment);
+        model.addAttribute("mapping", "/clients/show/" + id);
+        return PAYMENT_FORM;
+    }
+
     @RequestMapping("/payments/edit/{id}")
     public String edit(@PathVariable Long id, Model model) {
         model.addAttribute("payment", paymentService.findById(id));
@@ -51,12 +59,12 @@ public class PaymentController {
     }
 
     @RequestMapping(value = "/payments/save", method = RequestMethod.POST)
-    public String save(@Valid Payment payment, BindingResult result) {
+    public String save(@Valid Payment payment, BindingResult result, @RequestParam String mapping) {
         if (result.hasErrors()) {
             return PAYMENT_FORM;
         }
         paymentService.save(payment);
-        return REDIRECT_PAYMENTS;
+        return mapping.equals("") ? REDIRECT_PAYMENTS : "redirect:" + mapping;
     }
 
     @ModelAttribute("clients")

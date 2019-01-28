@@ -10,6 +10,7 @@
     <title>Title</title>
 </head>
 <body>
+    <c:import url="util/header.jsp"/>
     unit edit page<hr>
     <table cellpadding="4">
         <c:set var="action"><c:url value="/units/save"/></c:set>

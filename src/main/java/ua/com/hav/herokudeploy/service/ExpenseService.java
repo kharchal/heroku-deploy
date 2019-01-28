@@ -6,37 +6,37 @@ import org.springframework.transaction.annotation.Transactional;
 import ua.com.hav.herokudeploy.model.Client;
 import ua.com.hav.herokudeploy.model.Expense;
 import ua.com.hav.herokudeploy.model.Payment;
-import ua.com.hav.herokudeploy.repo.PaymentRepo;
+import ua.com.hav.herokudeploy.repo.ExpenseRepo;
 
 import javax.persistence.EntityNotFoundException;
 import java.util.List;
 
 @Service
-public class PaymentService {
+public class ExpenseService {
 
     @Autowired
-    private PaymentRepo paymentRepo;
+    private ExpenseRepo expenseRepo;
 
     @Autowired
-    private ExpenseService expenseService;
+    private PaymentService paymentService;
 
     @Autowired
     private ClientService clientService;
 
-    public List<Payment> findAll() {
-        return paymentRepo.findAll();
+    public List<Expense> findAll() {
+        return expenseRepo.findAll();
     }
 
-    public Payment findById(Long id) {
-        return paymentRepo.findById(id).orElseThrow(() -> new EntityNotFoundException("Payment id = " + id));
+    public Expense findById(Long id) {
+        return expenseRepo.findById(id).orElseThrow(() -> new EntityNotFoundException("Expense id = " + id));
     }
 
     @Transactional
-    public void save(Payment payment) {
-        paymentRepo.save(payment);
-        Long clientId = payment.getClient().getId();
-        List<Payment> payments = paymentRepo.findAllByClientId(clientId);
-        List<Expense> expenses = expenseService.findAllByClientId(clientId);
+    public void save(Expense expense) {
+        expenseRepo.save(expense);
+        Long clientId = expense.getClient().getId();
+        List<Payment> payments = paymentService.findAllByClientId(clientId);
+        List<Expense> expenses = expenseRepo.findAllByClientId(clientId);
         int pSum = 0;
         for (Payment p : payments) {
             pSum += p.getAmount();
@@ -51,7 +51,7 @@ public class PaymentService {
         clientService.save(client);
     }
 
-    public List<Payment> findAllByClientId(Long id) {
-        return paymentRepo.findAllByClientId(id);
+    public List<Expense> findAllByClientId(Long id) {
+        return expenseRepo.findAllByClientId(id);
     }
 }
