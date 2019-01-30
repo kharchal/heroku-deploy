@@ -14,9 +14,9 @@
     <c:set var="action"><c:url value="/login"/></c:set>
     <form action="${action}" method="post">
         <label for="login">LOGIN</label>
-        <input name="login" id="login"/>
+        <input name="login" id="login" value="test"/>
         <label for="password">LOGIN</label>
-        <input name="password" id="password" type="password"/>
+        <input name="password" id="password" type="password" value="222"/>
         <input type="submit" value="Login"/>
     </form>
     <c:import url="util/footer.jsp"/>

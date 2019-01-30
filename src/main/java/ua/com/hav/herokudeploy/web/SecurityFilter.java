@@ -34,6 +34,8 @@ public class SecurityFilter implements Filter {
         put("/channels", asList(ADMIN));
         put("/payments", asList(ADMIN, USER));
         put("/expenses", asList(ADMIN, USER));
+        put("/outcomes", asList(ADMIN));
+        put("/reasons", asList(ADMIN));
     }};
 
     private Map<String, List<String>> accessRightsStartsWith = new HashMap<String, List<String>>(){{
@@ -46,6 +48,8 @@ public class SecurityFilter implements Filter {
         put("/channels/", asList(ADMIN));
         put("/payments/", asList(ADMIN));
         put("/expenses/", asList(ADMIN, USER));
+        put("/outcomes/", asList(ADMIN));
+        put("/reasons/", asList(ADMIN));
     }};
 
 
